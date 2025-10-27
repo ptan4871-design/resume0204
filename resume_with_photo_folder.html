@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
@@ -8,10 +7,10 @@
 <style>
     :root{--bg:#f6f8fb;--card:#ffffff;--accent:#2b6ef6;--muted:#6b7280;--glass:rgba(43,110,246,0.06)}
     *{box-sizing:border-box}
-    body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial; background:var(--bg); margin:0; color:#111}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans','Helvetica Neue',Arial;background:var(--bg);margin:0;color:#111}
     .container{max-width:900px;margin:36px auto;padding:28px}
     .card{background:var(--card);border-radius:14px;padding:26px;display:grid;grid-template-columns:260px 1fr;gap:24px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
-    .avatar{height:160px;background:linear-gradient(135deg,var(--glass),transparent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px}
+    .avatar{height:160px;background:linear-gradient(135deg,var(--glass),transparent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px;border:3px solid var(--glass);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
     h1{margin:0;font-size:22px}
     h2{margin:10px 0 6px;font-size:14px;color:var(--muted);font-weight:600}
     p.small{margin:6px 0;color:var(--muted);font-size:14px}
@@ -28,120 +27,151 @@
     button.secondary{background:transparent;color:var(--accent);border:2px solid var(--accent)}
     footer{margin-top:16px;text-align:center;color:var(--muted);font-size:13px}
     @media (max-width:800px){.card{grid-template-columns:1fr;}.controls{justify-content:space-between}}
-    /* Dark mode styles applied dynamically */
     .dark{--bg:#0b1220;--card:#0f1724;--accent:#60a5fa;--muted:#9ca3af;--glass:rgba(96,165,250,0.08);color:#e6eef8}
-  </style>
+    @media print {
+      body{background:white;color:black;}
+      .controls,footer,button{display:none!important;}
+      .card{box-shadow:none;}
+    }
+</style>
 </head>
 <body>
 <div class="container">
 <div class="controls">
-<div style="display:flex;gap:8px;align-items:center">
-<button id="printBtn">列印 / 另存為 PDF</button>
-<button class="secondary" id="toggleTheme">切換深色模式</button>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button id="printBtn">列印 / 另存為 PDF</button>
+    <button class="secondary" id="toggleTheme">切換深色模式</button>
+  </div>
 </div>
-</div>
+
 <main class="card" id="resumeCard">
 <aside class="left">
-<img alt="個人照片" class="avatar" src="image/1.jpg" style="width:100%;height:auto;border-radius:10px;object-fit:cover;"/>
-<h1 style="margin-top:12px">秦癡潘</h1>
-<p class="small">學號：114011110 </p>
-<div class="section contact">
-<h3>聯絡資訊</h3>
-<p class="small">📧 <span id="email">your.email@example.com</span></p>
-<p class="small">📞 <span id="phone">+886 9xx xxx xxx</span></p>
-<p class="small">🏠 <span id="location">臺灣</span></p>
-</div>
-<div class="section">
-<h3>技能</h3>
-<div class="skill-list">
-<span class="skill">HTML</span>
-<span class="skill">CSS</span>
-<span class="skill">JavaScript</span>
-<span class="skill">溝通</span>
-<span class="skill">團隊合作</span>
-</div>
-</div>
-<div class="section">
-<h3>語言</h3>
-<div class="tag">中文（母語）</div>
-<div class="tag">英文（中等）</div>
-</div>
+  <img alt="個人照片" class="avatar" src="image/1.jpg" style="width:100%;height:auto;border-radius:10px;object-fit:cover;"/>
+  <h1 style="margin-top:12px">秦癡潘</h1>
+  <p class="small">學號：114011110</p>
+
+  <div class="section contact">
+    <h3>聯絡資訊</h3>
+    <p class="small">📧 <span id="email">your.email@example.com</span></p>
+    <p class="small">📞 <span id="phone">+886 9xx xxx xxx</span></p>
+    <p class="small">🏠 <span id="location">臺灣</span></p>
+  </div>
+
+  <div class="section">
+    <h3>技能</h3>
+    <div class="skill-list">
+      <span class="skill">學習與適應能力強</span>
+      <span class="skill">管理時間與安排工作</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>語言</h3>
+    <div class="tag">中文（流暢）</div>
+    <div class="tag">越南文（母語）</div>
+  </div>
 </aside>
+
 <section>
-<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
-<div>
-<h2>個人簡介</h2>
-<p class="small">我是秦癡潘，是越南人。我來台灣的目的是學習與賺錢。此外，我還對中文懷有極大的熱情。 </p>
-</div>
-</div>
-<div class="section">
-<h3>學歷</h3>
-<div class="exp">
-<strong>亞洲大學／健康產業管理學系</strong>
-<div class="small muted">2024 — 至今</div>
-<p class="small">主修：健康產業管理</p>
-</div>
-</div>
-<div class="section">
-<h3>興趣</h3>
-<p class="small">程式設計、攝影、籃球</p>
-</div>
-<div style="display:flex;gap:10px;margin-top:8px">
-<button class="secondary" id="editBtn">編輯範本資料</button>
-<button id="downloadJson">下載 JSON</button>
-</div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+    <div>
+      <h2>個人簡介</h2>
+      <p class="small">我是秦癡潘，是越南人。我來台灣的目的是學習與賺錢。此外，我還對中文懷有極大的熱情。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>學歷</h3>
+    <div class="exp">
+      <strong>亞洲大學／健康產業管理學系</strong>
+      <div class="small muted">2024 — 至今</div>
+      <p class="small">主修：健康產業管理</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>工作經驗</h3>
+    <div class="exp">
+      <strong>快炒店</strong>
+      <div class="small muted">2025/02 — 2025/06</div>
+      <p class="small">協助廚房出餐與備料、學習團隊合作與時間分配。</p>
+    </div>
+    <div class="exp">
+      <strong>炸物店</strong>
+      <div class="small muted">2025/07 — 現在</div>
+      <p class="small">負責櫃檯點餐與簡易炸物操作，提升顧客服務與應變能力。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>興趣</h3>
+    <p class="small">睡覺、玩手機</p>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-top:8px">
+    <button class="secondary" id="editBtn">編輯範本資料</button>
+    <button id="downloadJson">下載 JSON</button>
+  </div>
 </section>
 </main>
+
 <footer>此為簡易履歷範本 — 可按「編輯範本資料」快速替換資訊，或按「列印 / 另存為 PDF」。</footer>
 </div>
+
 <script>
-    const root = document.documentElement;
-    const resumeCard = document.getElementById('resumeCard');
-    const toggle = document.getElementById('toggleTheme');
-    const printBtn = document.getElementById('printBtn');
-    const editBtn = document.getElementById('editBtn');
-    const downloadJson = document.getElementById('downloadJson');
+  const toggle = document.getElementById('toggleTheme');
+  const printBtn = document.getElementById('printBtn');
+  const editBtn = document.getElementById('editBtn');
+  const downloadJson = document.getElementById('downloadJson');
 
-    // 深色模式切換
-    toggle.addEventListener('click', ()=>{
-      document.body.classList.toggle('dark');
-      toggle.textContent = document.body.classList.contains('dark') ? '切回淺色模式' : '切換深色模式';
-    });
+  // 初始化主題
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    toggle.textContent = '切回淺色模式';
+  }
 
-    // 列印 / PDF
-    printBtn.addEventListener('click', ()=>{
-      window.print();
-    });
+  // 深色模式切換
+  toggle.addEventListener('click', ()=>{
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    toggle.textContent = isDark ? '切回淺色模式' : '切換深色模式';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
 
-    // 編輯範本（簡單 prompt-based 編輯）
-    editBtn.addEventListener('click', ()=>{
-      const name = prompt('姓名', '秦吃潘');
-      const email = prompt('電子郵件', document.getElementById('email').textContent);
-      const phone = prompt('電話', document.getElementById('phone').textContent);
-      const loc = prompt('地點', document.getElementById('location').textContent);
-      if(name) document.querySelector('h1').textContent = name;
-      if(email) document.getElementById('email').textContent = email;
-      if(phone) document.getElementById('phone').textContent = phone;
-      if(loc) document.getElementById('location').textContent = loc;
-    });
+  // 列印 / PDF
+  printBtn.addEventListener('click', ()=>window.print());
 
-    // 下載 JSON
-    downloadJson.addEventListener('click', ()=>{
-      const data = {
-        name: document.querySelector('h1').textContent,
-        studentId: '114011110',
-        email: document.getElementById('email').textContent,
-        phone: document.getElementById('phone').textContent,
-        location: document.getElementById('location').textContent,
-        skills: Array.from(document.querySelectorAll('.skill')).map(s=>s.textContent),
-      };
-      const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = (data.name || 'resume') + '.json';
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-  </script>
+  // 編輯範本
+  editBtn.addEventListener('click', ()=>{
+    const name = prompt('姓名', document.querySelector('h1').textContent);
+    const email = prompt('電子郵件', document.getElementById('email').textContent);
+    const phone = prompt('電話', document.getElementById('phone').textContent);
+    const loc = prompt('地點', document.getElementById('location').textContent);
+    if(name) document.querySelector('h1').textContent = name;
+    if(email) document.getElementById('email').textContent = email;
+    if(phone) document.getElementById('phone').textContent = phone;
+    if(loc) document.getElementById('location').textContent = loc;
+  });
+
+  // 下載 JSON
+  downloadJson.addEventListener('click', ()=>{
+    const data = {
+      name: document.querySelector('h1').textContent,
+      studentId: '114011110',
+      email: document.getElementById('email').textContent,
+      phone: document.getElementById('phone').textContent,
+      location: document.getElementById('location').textContent,
+      skills: Array.from(document.querySelectorAll('.skill')).map(s=>s.textContent),
+      experiences: ['快炒店 2025/02–2025/06','炸物店 2025/07–現在'],
+      interests: '睡覺、玩手機'
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = (data.name || 'resume') + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+</script>
 </body>
 </html>
