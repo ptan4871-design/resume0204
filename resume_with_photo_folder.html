@@ -6,18 +6,22 @@
 <title>履歷 — 秦癡潘</title>
 <style>
 :root{
-  --bg:#fff0f6;
-  --card:#ffffff;
-  --accent:#d47fff;
-  --muted:#a08fa0;
+  --bg:#fff0f6; /* 卡片外背景淡紫 */
+  --card:#ffffff; /* 卡片內背景 */
+  --accent:#d47fff; /* 粉紫標題 */
+  --accent2:#8b3ca6; /* 深紫標題 */
+  --muted:#a08fa0; /* 次文字灰紫 */
   --glass:rgba(212,127,255,0.1);
+  --skill-bg:#f9e6ff; /* 技能與語言背景 */
+  --skill-color:#4a2c5a; /* 技能與語言文字 */
+  --text-color:#3d1f6b; /* 區塊內容文字深紫 */
 }
 *{box-sizing:border-box;}
 body{
-  font-family:'Comic Sans MS','Segoe Print',cursive,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans','Helvetica Neue',Arial;
+  font-family:'Baloo 2','Comic Sans MS','Segoe Print',cursive,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans','Helvetica Neue',Arial;
   background:var(--bg);
   margin:0;
-  color:#333;
+  color:var(--text-color);
   position:relative;
   overflow-x:hidden;
 }
@@ -46,17 +50,42 @@ body{
   box-shadow:0 2px 12px rgba(0,0,0,0.08);
   object-fit:cover;
 }
-h1{margin:0;font-size:24px;color:#b856d1;}
+h1{
+  margin:12px 0 0 0;
+  font-size:32px;
+  color:#b856d1;
+  font-weight:bold;
+}
 h2{margin:10px 0 6px;font-size:14px;color:var(--muted);font-weight:600;}
-p.small{margin:6px 0;color:var(--muted);font-size:14px;}
+p.small{margin:6px 0;font-size:14px;}
 .left{padding-right:8px;}
 .contact{margin-top:12px;font-size:14px;}
-.tag{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;margin:6px 6px 0 0;font-size:13px;}
+.tag, .skill{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:14px;
+  margin:6px 6px 0 0;
+  font-size:13px;
+}
+.skill{
+  background:var(--skill-bg);
+  color:var(--skill-color);
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
 .section{margin-bottom:18px;}
-.section h3{margin:0 0 8px;font-size:16px;color:#b856d1;}
-.skill-list{display:flex;flex-wrap:wrap;}
-.skill{background:#ffe0ff;padding:6px 8px;border-radius:12px;margin:6px 8px 0 0;font-size:13px;}
-.exp{border-left:3px solid #f8c1ff;padding:10px 12px;margin-bottom:12px;border-radius:12px;background:#fff5ff;}
+.section h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+.section.contact h3,.section h3.skill-language{color:var(--accent);} /* 組1 */
+.section h3.other{color:var(--accent2);} /* 組2 */
+.exp{
+  border-left:3px solid #f8c1ff;
+  padding:10px 12px;
+  margin-bottom:12px;
+  border-radius:12px;
+  background:#fff5ff;
+}
 @media (max-width:800px){.card{grid-template-columns:1fr;}}
 /* 愛心動畫 */
 .heart{
@@ -79,19 +108,19 @@ p.small{margin:6px 0;color:var(--muted);font-size:14px;}
 <div class="container">
 <main class="card">
 <aside class="left">
-  <img alt="個人照片" class="avatar" src="image/1.jpg" style="width:100%;height:auto;"/>
+  <img alt="個人照片" class="avatar" src="image/1.jpg"/>
   <h1>秦癡潘</h1>
   <p class="small">學號：114011110</p>
 
   <div class="section contact">
-    <h3>聯絡資訊</h3>
-    <p class="small">📧 秘密</p>
-    <p class="small">📞 秘密</p>
-    <p class="small">🏠 越南</p>
+    <h3 class="contact">聯絡資訊</h3>
+    <p class="small">📧 your.email@example.com</p>
+    <p class="small">📞 +886 9xx xxx xxx</p>
+    <p class="small">🏠 臺灣</p>
   </div>
 
   <div class="section">
-    <h3>技能</h3>
+    <h3 class="skill-language">技能</h3>
     <div class="skill-list">
       <span class="skill">學習與適應能力強</span>
       <span class="skill">管理時間與安排工作</span>
@@ -99,27 +128,34 @@ p.small{margin:6px 0;color:var(--muted);font-size:14px;}
   </div>
 
   <div class="section">
-    <h3>語言</h3>
-    <div class="tag">中文（流暢）</div>
-    <div class="tag">越南文（母語）</div>
+    <h3 class="skill-language">語言</h3>
+    <div class="skill-list">
+      <span class="skill">中文（流暢）</span>
+      <span class="skill">越南文（母語）</span>
+    </div>
   </div>
 
 </aside>
 
 <section>
   <div>
-    <h2>個人簡介</h2>
+    <h3 class="other">個人簡介</h3>
     <p class="small">我是秦癡潘，是越南人。我來台灣的目的是學習與賺錢。此外，我還對中文懷有極大的熱情。</p>
   </div>
 
   <div class="section">
-    <h3>目標</h3>
+    <h3 class="other">興趣</h3>
+    <p class="small">睡覺、玩手機</p>
+  </div>
+
+  <div class="section">
+    <h3 class="other">目標</h3>
     <p class="small">當台越翻譯或是回越南當台灣人的導遊</p>
     <p class="small">原因：因為我導遊可以邊玩邊賺錢</p>
   </div>
 
   <div class="section">
-    <h3>學歷</h3>
+    <h3 class="other">學歷</h3>
     <div class="exp">
       <strong>亞洲大學／健康產業管理學系</strong>
       <div class="small muted">2024 — 至今</div>
@@ -128,7 +164,7 @@ p.small{margin:6px 0;color:var(--muted);font-size:14px;}
   </div>
 
   <div class="section">
-    <h3>工作經驗</h3>
+    <h3 class="other">工作經驗</h3>
     <div class="exp">
       <strong>快炒店</strong>
       <div class="small muted">2025/02 — 2025/06</div>
@@ -141,10 +177,6 @@ p.small{margin:6px 0;color:var(--muted);font-size:14px;}
     </div>
   </div>
 
-  <div class="section">
-    <h3>興趣</h3>
-    <p class="small">睡覺、玩手機</p>
-  </div>
 </section>
 </main>
 </div>
